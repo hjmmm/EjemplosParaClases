@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 public class Reserva {
@@ -16,7 +17,7 @@ public class Reserva {
 		this.fechaSalida = salida;
 		this.numeroTarjetaCredito = numTarjeta;
 		this.tipoTarjetaCredito = tipoTarjeta;
-		this.id = ++CONSECUTIVO;
+		this.id = CONSECUTIVO++;
 		
 	}
 	
@@ -70,10 +71,28 @@ public class Reserva {
 		return valorTotal;
 	}
 	
-	public void agregarHuesped(int id, String nombre, GregorianCalendar nacimiento) {
+	public void agregarHuesped(long id, String nombre, GregorianCalendar nacimiento) {
 		Huesped nuevoHuesped = new Huesped(id, nombre, nacimiento);
-		Huesped[] nuevoArreglo = new Huesped[huespedes.length + 1];
-		System.arraycopy(huespedes, 0, nuevoArreglo, 0, huespedes.length);
+		int nuevoTamagno = huespedes != null ? huespedes.length + 1 : 1; 
+		Huesped[] nuevoArreglo = new Huesped[nuevoTamagno];
+		if (huespedes != null) {
+			System.arraycopy(huespedes, 0, nuevoArreglo, 0, huespedes.length);
+		}
 		nuevoArreglo[nuevoArreglo.length - 1] = nuevoHuesped;
+		huespedes = nuevoArreglo;
+	}
+	
+	public String reporteHuespedes() {
+		String datosHuespedes = "";
+		for(Huesped huesped : huespedes) {
+			datosHuespedes += "Huesped: " + huesped.toString() + System.lineSeparator();
+		}
+		return datosHuespedes;
+	}
+	
+	public String toString() {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		return id + " entrada: " +  dateFormat.format(fechaEntrada.getTime()) + " salida: " + dateFormat.format(fechaSalida.getTime()) 
+				+ " tarjeta #: " + numeroTarjetaCredito + " tarjeta tipo: " + tipoTarjetaCredito;
 	}
 }

@@ -28,18 +28,32 @@ public class Hotel {
 		return nombre; 
 	}
 	
-	public void agregarReserva(GregorianCalendar entrada, GregorianCalendar salida, String numTarjeta, String tipoTarjeta) {
+	public int agregarReserva(GregorianCalendar entrada, GregorianCalendar salida, String numTarjeta, String tipoTarjeta) {
 		Reserva nuevaReserva = new Reserva(entrada, salida, numTarjeta, tipoTarjeta);
-		Reserva[] nuevoArreglo = new Reserva[reservas.length + 1];
-		System.arraycopy(reservas, 0, nuevoArreglo, 0, reservas.length);
+		int nuevoTamagno = reservas != null ? reservas.length + 1 : 1; 
+		Reserva[] nuevoArreglo = new Reserva[nuevoTamagno];
+		if (reservas != null) {
+			System.arraycopy(reservas, 0, nuevoArreglo, 0, reservas.length);
+		}
 		nuevoArreglo[nuevaReserva.getId()] = nuevaReserva;
+		reservas = nuevoArreglo;
+		return nuevaReserva.getId();
 	}
-
 	
-	public void agregarHuesped(int idReserva, int idHuesped, String nombre, GregorianCalendar nacimiento) {
+	public void agregarHuesped(int idReserva, long idHuesped, String nombre, GregorianCalendar nacimiento) {
 		if (idReserva < reservas.length){
 			reservas[idReserva].agregarHuesped(idHuesped, nombre, nacimiento);
 		}		
+	}
+	
+	public String reporteReservas() {
+		String datosReservas = "";
+		for(Reserva reserva : reservas) {
+			datosReservas += "Reserva: " + reserva.toString() + System.lineSeparator();
+			datosReservas += "Costo total: " + reserva.calcularValor(tarifaBasica) + System.lineSeparator();
+			datosReservas += reserva.reporteHuespedes();
+		}
+		return datosReservas;
 	}
 	
 }

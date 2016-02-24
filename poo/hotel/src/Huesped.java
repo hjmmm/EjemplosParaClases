@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -6,7 +7,7 @@ public class Huesped {
 	private String nombre;
 	private GregorianCalendar fechaNacimiento;
 	
-	public Huesped(int id, String nombre, GregorianCalendar nacimiento) {
+	public Huesped(long id, String nombre, GregorianCalendar nacimiento) {
 		this.id = id;
 		this.nombre = nombre;
 		this.fechaNacimiento = nacimiento;
@@ -40,5 +41,10 @@ public class Huesped {
 			diferencia--;
 		}
 		return diferencia;
+	}
+	
+	public String toString(){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		return id + " nombre: " + nombre + " nacimiento: " + dateFormat.format(fechaNacimiento.getTime()) + " edad: " + calcularEdad();
 	}
 }
