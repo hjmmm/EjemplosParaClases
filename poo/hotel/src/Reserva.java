@@ -61,6 +61,7 @@ public class Reserva {
 	public double calcularValor(double tarifaBase) {
 		double valorTotal = 0;
 		int diasReserva = (int)Math.ceil((fechaSalida.getTimeInMillis() - fechaEntrada.getTimeInMillis())/(1000 * 3600 * 24));
+		if (huespedes == null) { return valorTotal; }
 		for(Huesped huesped : huespedes) {
 			double valorPorHuesped = tarifaBase * diasReserva;
 			if (huesped.calcularEdad() < 12) {
@@ -84,6 +85,9 @@ public class Reserva {
 	
 	public String reporteHuespedes() {
 		String datosHuespedes = "";
+		if (huespedes == null) {
+			return datosHuespedes;
+		}
 		for(Huesped huesped : huespedes) {
 			datosHuespedes += "Huesped: " + huesped.toString() + System.lineSeparator();
 		}
