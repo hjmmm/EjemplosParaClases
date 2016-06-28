@@ -18,7 +18,7 @@ public class Artista {
 	private String descripcion;
 	private Set<Genero> generos;
 	
-	public Artista(long id, String nombre, String descripcion, Collection<Genero> generos) {
+	public Artista(String nombre, String descripcion, Collection<Genero> generos) {
 		// El id se genera usando el consecutivo
 		CONSECUTIVO++;
 		this.id = CONSECUTIVO;		
