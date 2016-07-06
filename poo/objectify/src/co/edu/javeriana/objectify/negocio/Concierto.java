@@ -2,6 +2,9 @@ package co.edu.javeriana.objectify.negocio;
 
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * Representa un concierto de un artista determinado incluyendo el lugar en el que se celebrara.
@@ -16,18 +19,18 @@ public class Concierto {
 	private String escenario;
 	private String ciudad;
 	private String pais;
-	private Artista artista;
+	private List<Artista> artistas;
 	private ZonedDateTime fechaYHora;
 	
-	public Concierto(String escenario, String ciudad, String pais, Artista artista, ZonedDateTime fechaYHora) {
+	public Concierto(String escenario, String ciudad, String pais, ZonedDateTime fechaYHora) {
 		// El id se genera usando el consecutivo
 		CONSECUTIVO++;
 		this.id = CONSECUTIVO;
 		this.escenario = escenario;
 		this.ciudad = ciudad;
 		this.pais = pais;
-		this.artista = artista;
 		this.setFechaYHora(fechaYHora);
+		this.artistas = new ArrayList<Artista>();
 	}
 	
 	public String getEscenario() {
@@ -48,22 +51,20 @@ public class Concierto {
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
-	public Artista getArtista() {
-		return artista;
-	}
-	public void setArtista(Artista artista) {
-		this.artista = artista;
+	public Collection<Artista> getArtistas() {
+		return new ArrayList<Artista>(this.artistas);
 	}
 	public long getId() {
 		return id;
 	}
-
 	public ZonedDateTime getFechaYHora() {
 		return fechaYHora;
 	}
-
 	public void setFechaYHora(ZonedDateTime fechaYHora) {
 		this.fechaYHora = fechaYHora;
 	}
-	
+	public void agregarArtista(Artista artista) {
+		this.artistas.add(artista);
+		artista.notificarSeguidoresConcierto(this);
+	}	
 }

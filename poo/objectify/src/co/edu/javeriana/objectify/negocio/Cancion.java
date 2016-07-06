@@ -16,10 +16,10 @@ public class Cancion {
 	private String rutaArchivo;	
 	private Album album;
 	
-	public Cancion(Album album, String nombre, int duracion, long reproducciones, String rutaArchivo) {
+	public Cancion(Album album, String nombre, int duracion, String rutaArchivo) {
 		this.nombre = nombre;
 		this.duracion = duracion;
-		this.reproducciones = reproducciones;
+		this.reproducciones = 0;
 		this.rutaArchivo = rutaArchivo;
 		this.setAlbum(album);
 	}
@@ -39,8 +39,8 @@ public class Cancion {
 	public long getReproducciones() {
 		return reproducciones;
 	}
-	public void setReproducciones(long reproducciones) {
-		this.reproducciones = reproducciones;
+	public void aumentarReproducciones() {
+		this.reproducciones++;
 	}
 	public String getRutaArchivo() {
 		return rutaArchivo;
