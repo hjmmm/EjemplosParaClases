@@ -32,10 +32,10 @@ public class Objectify {
 	 * @param pago
 	 * @return Retorna el id del usuario creado
 	 */
-	public long agregarUsuario(String nombre, boolean pago) {
+	public long agregarUsuario(String nombre, boolean pago, ZonedDateTime fechaVencimiento) {
 		Usuario usuario;
 		if (pago) {
-			usuario = new UsuarioPago(nombre, ZonedDateTime.now().plusYears(1));
+			usuario = new UsuarioPago(nombre, fechaVencimiento);
 		} else {
 			usuario = new UsuarioBasico(nombre);
 		}
@@ -164,6 +164,11 @@ public class Objectify {
 			UsuarioPago uPago = (UsuarioPago)usuario;
 			uPago.agregarFavorita(artista.buscarCancion(nombreAlbum, posicionCancion));
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "Objectify [\nartistas=" + artistas + ", \nconciertos=" + conciertos + ", \nusuarios=" + usuarios + "]";
 	}
 
 }

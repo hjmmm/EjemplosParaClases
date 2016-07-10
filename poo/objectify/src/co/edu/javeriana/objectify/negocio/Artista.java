@@ -92,6 +92,12 @@ public class Artista {
 	public Cancion buscarCancion(String nombreAlbum, int posicionCancion) {
 		Album album = this.albumes.get(nombreAlbum);
 		return album.buscarCancion(posicionCancion);
+	}
+
+	@Override
+	public String toString() {
+		return "\nArtista [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", generos=" + generos
+				+ ", seguidores=" + seguidores + ", albumes=" + albumes + "]";
 	}	
 	
 }

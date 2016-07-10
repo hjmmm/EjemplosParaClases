@@ -3,6 +3,9 @@ package co.edu.javeriana.objectify.presentacion;
 import java.io.IOException;
 import java.util.Scanner;
 
+import org.json.simple.parser.ParseException;
+
+import co.edu.javeriana.objectify.archivos.ManejadorArchivos;
 import co.edu.javeriana.objectify.negocio.Cancion;
 import co.edu.javeriana.objectify.negocio.Objectify;
 import co.edu.javeriana.objectify.negocio.Reproductor;
@@ -16,7 +19,7 @@ import javafx.stage.Stage;
  */
 public class ObjectifyConsola {
 	
-	public static void main(String[] args) throws InterruptedException, IOException{
+	public static void main(String[] args) throws InterruptedException, IOException, ParseException{
 		Objectify negocio = new Objectify();
 		
 		Reproductor reproductor = Reproductor.obtenerInstancia();
@@ -24,9 +27,13 @@ public class ObjectifyConsola {
 		reproductor.agregarACola(new Cancion(null, "C2", 100, "http://ocrmirror.org/files/music/remixes/Legend_of_Zelda_Ocarina_of_Time_Lullaby_of_the_Sky_OC_ReMix.mp3"));
 		reproductor.agregarACola(new Cancion(null, "C3", 100, "http://ocrmirror.org/files/music/remixes/Legend_of_Zelda_Twilight_Princess_Zelda%27s_Lament_OC_ReMix.mp3"));		
 		
+		System.out.printf("Número de usuarios cargados: %d\n", ManejadorArchivos.cargarArchivoUsuarios(negocio, "usuarios.txt"));
+		System.out.printf("Número de artistas cargados: %d\n", ManejadorArchivos.cargarArchivoArtistas(negocio, "artistas.json"));
+		
+		System.out.println(negocio);
 		
 		Scanner scanner = new Scanner(System.in);
-		String comando = "p";
+		String comando = "q";
 		while (!comando.equals("q")){
 			if (comando.equals("p")) {
 				Reproductor.obtenerInstancia().reproducir();
@@ -40,7 +47,7 @@ public class ObjectifyConsola {
 			
 			comando = scanner.nextLine();
 		}
-		scanner.close();		
+		scanner.close();
 		System.exit(0);		
 	}
 

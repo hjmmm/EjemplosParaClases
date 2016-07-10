@@ -8,11 +8,11 @@ package co.edu.javeriana.objectify.negocio;
  *
  */
 public enum Genero {
-	Rock,
-	Jazz,
-	Blues,
-	Classical,
-	Pop,
-	Metal,
-	Latina
+	ROCK,
+	JAZZ,
+	BLUES,
+	CLASSICAL,
+	POP,
+	METAL,
+	LATINA
 }

@@ -54,5 +54,11 @@ public class Cancion {
 	public void setAlbum(Album album) {
 		this.album = album;
 	}
+
+	@Override
+	public String toString() {
+		return "\n\t\tCancion [nombre=" + nombre + ", duracion=" + duracion + ", reproducciones=" + reproducciones
+				+ ", rutaArchivo=" + rutaArchivo + "]";
+	}
 		
 }

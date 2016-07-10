@@ -69,5 +69,10 @@ public class Album {
 	public Cancion buscarCancion(int posicionCancion) {
 		return this.canciones.get(posicionCancion);
 	}
+
+	@Override
+	public String toString() {
+		return "\n\tAlbum [titulo=" + titulo + ", caratula=" + caratula + ", exclusivo=" + exclusivo + ", canciones=" + canciones + "]";
+	}
 	
 }

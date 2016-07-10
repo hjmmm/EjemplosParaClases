@@ -1,0 +1,6 @@
+# Este es un comentario
+
+
+PAGO; Juan Pepinito; 2017-01-10 
+NORMAL; Maurice Moss; 2010-01-01
+PAGO; Matilde Mendez; 2018-10-10

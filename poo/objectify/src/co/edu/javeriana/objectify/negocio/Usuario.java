@@ -55,4 +55,9 @@ public abstract class Usuario {
 	
 	public abstract boolean puedeEscucharAlbum(Album album);
 
+	@Override
+	public String toString() {
+		return "\n\tUsuario [id=" + id + ", nombre=" + nombre + ", notificaciones=" + notificaciones + "]";
+	}
+
 }
