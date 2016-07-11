@@ -49,6 +49,7 @@ public class Reproductor extends JFXPanel {
 			try {
 				URL url;
 				this.reproduciendo = this.colaReproduccion.poll();
+				this.reproduciendo.aumentarReproducciones();
 				if (this.reproduciendo != null) {
 					System.out.printf("Reproduciendo: %s\n",this.reproduciendo.getNombre());
 					url = new URL(this.reproduciendo.getRutaArchivo());
