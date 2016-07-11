@@ -1,6 +1,8 @@
 package co.edu.javeriana.objectify.negocio;
 
-public interface INotificacion {
+import java.io.Serializable;
+
+public interface INotificacion extends Serializable {	
 	
 	String obtenerMensaje();
 	

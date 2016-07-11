@@ -1,11 +1,15 @@
 package co.edu.javeriana.objectify.negocio;
 
+import java.io.Serializable;
+
 /**
  * Representa una cancion como parte de un album en el sistema
  * @author Javier Morales
  *
  */
-public class Cancion {
+public class Cancion implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	private String nombre;
 	/**

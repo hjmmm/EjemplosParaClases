@@ -1,33 +1,20 @@
 {
 	"artistas": [
 		{  
-			"nombre" : "Pink Floyd", 
-			"descripcion" : "Pink Floyd es una banda de rock brit�nica, considerada un icono cultural del siglo xx y una de las bandas m�s influyentes en la historia de la m�sica, que obtuvo gran popularidad gracias a su m�sica psicod�lica que evolucion� hacia el rock progresivo con el paso del tiempo.",
-			"generos" : [ "ROCK" ],
+			"nombre" : "OC remixes", 
+			"descripcion" : "OverClocked ReMix, also known as OC ReMix and OCR, is a non-commercial organization dedicated to preserving and paying tribute to video game music through arranging and re-interpreting the songs with new technology and software, as well as by various traditional means. The primary focus of OC ReMix is its website which offers thousands of free fan-made video game music arrangements, information on game music and composers, resources for aspiring artists, and a community forum for video game music fans.",
+			"generos" : [ "ROCK","JAZZ", "CLASSICAL" ],
 			"albumes" : [
 			 	{ 
-			 		"titulo" : "Dark side of the moon",
-			 		"caratula" : "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
-			 		"exclusivo" : true,
-			 		"canciones" : [
-			 			{ "nombre" : "Speak to me", "duracion" : 67, "rutaArchivo" : "1.mp3" },
-			 			{ "nombre" : "Breathe", "duracion" : 169, "rutaArchivo" : "2.mp3" },
-			 			{ "nombre" : "On the run", "duracion" : 225, "rutaArchivo" : "3.mp3" }
-			 		]
-			 	},
-			 	{ 
-			 		"titulo" : "Animals",
-			 		"caratula" : "https://upload.wikimedia.org/wikipedia/en/7/74/Pink_Floyd-Animals-Frontal.jpg",
+			 		"titulo" : "Final Fantasy VI: Balance and Ruin",
+			 		"caratula" : "https://ocremix.org/thumbs/500/files/images/albums/6/2/46-132.png",
 			 		"exclusivo" : false,
 			 		"canciones" : [
-			 			{ "nombre" : "Pigs on the wing 1", "duracion" : 85, "rutaArchivo" : "1.mp3" },
-			 			{ "nombre" : "Dogs", "duracion" : 1023, "rutaArchivo" : "2.mp3" },
-			 			{ "nombre" : "Pigs (Three diferent ones)", "duracion" : 685, "rutaArchivo" : "3.mp3" },
-			 			{ "nombre" : "Sheep", "duracion" : 625, "rutaArchivo" : "4.mp3" },
-			 			{ "nombre" : "Pigs on the wing 2", "duracion" : 83, "rutaArchivo" : "5.mp3" }
+			 			{ "nombre" : "Prologue", "duracion" : 100, "rutaArchivo" : "http://iterations.org/files/music/albums/ff6/1-01%20bustatunez%20-%20Prologue%20(Opening%20Theme).mp3" },
+			 			{ "nombre" : "Now Is the Winter", "duracion" : 101, "rutaArchivo" : "http://iterations.org/files/music/albums/ff6/1-02%20Mustin%20-%20Now%20Is%20the%20Winter%20(The%20Mines%20of%20Narshe).mp3" },
+			 			{ "nombre" : "Remember", "duracion" : 102, "rutaArchivo" : "http://iterations.org/files/music/albums/ff6/1-03%20Joshua%20Morse%20-%20Remember%20(Awakening).mp3" }
 			 		]
-			 	}
-			 	
+			 	}			 	
 			]
 		}
 	]

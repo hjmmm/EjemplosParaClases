@@ -2,6 +2,8 @@ package co.edu.javeriana.objectify.negocio;
 
 public class NotificacionAlbum implements INotificacion {
 
+	private static final long serialVersionUID = 1L;
+
 	private Album album;
 	
 	public NotificacionAlbum(Album album) {

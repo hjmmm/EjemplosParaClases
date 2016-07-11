@@ -1,9 +1,12 @@
 package co.edu.javeriana.objectify.negocio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListaDeReproduccion {
+public class ListaDeReproduccion implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	private String nombre;
 	private List<Cancion> canciones;

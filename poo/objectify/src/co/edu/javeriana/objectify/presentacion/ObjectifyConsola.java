@@ -1,16 +1,18 @@
 package co.edu.javeriana.objectify.presentacion;
 
 import java.io.IOException;
-import java.util.Scanner;
-
-import org.json.simple.parser.ParseException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import co.edu.javeriana.objectify.archivos.ManejadorArchivos;
-import co.edu.javeriana.objectify.negocio.Cancion;
+import co.edu.javeriana.objectify.negocio.Album;
+import co.edu.javeriana.objectify.negocio.Artista;
 import co.edu.javeriana.objectify.negocio.Objectify;
 import co.edu.javeriana.objectify.negocio.Reproductor;
-import javafx.application.Application;
-import javafx.stage.Stage;
+import co.edu.javeriana.objectify.negocio.Usuario;
+import co.edu.javeriana.poo.utiles.IOConsola;
 
 /**
  * Clase de uso del sistema de música usando una interfaz por consola.
@@ -19,36 +21,114 @@ import javafx.stage.Stage;
  */
 public class ObjectifyConsola {
 	
-	public static void main(String[] args) throws InterruptedException, IOException, ParseException{
+	private static PrintStream out = System.out;
+	
+	public static void main(String[] args) throws IOException {
+		
 		Objectify negocio = new Objectify();
-		
 		Reproductor reproductor = Reproductor.obtenerInstancia();
-		reproductor.agregarACola(new Cancion(null, "C1", 100, "http://ocrmirror.org/files/music/remixes/Legend_of_Zelda_Twilight_Princess_Wistful_OC_ReMix.mp3"));
-		reproductor.agregarACola(new Cancion(null, "C2", 100, "http://ocrmirror.org/files/music/remixes/Legend_of_Zelda_Ocarina_of_Time_Lullaby_of_the_Sky_OC_ReMix.mp3"));
-		reproductor.agregarACola(new Cancion(null, "C3", 100, "http://ocrmirror.org/files/music/remixes/Legend_of_Zelda_Twilight_Princess_Zelda%27s_Lament_OC_ReMix.mp3"));		
 		
-		System.out.printf("Número de usuarios cargados: %d\n", ManejadorArchivos.cargarArchivoUsuarios(negocio, "usuarios.txt"));
-		System.out.printf("Número de artistas cargados: %d\n", ManejadorArchivos.cargarArchivoArtistas(negocio, "artistas.json"));
-		
-		System.out.println(negocio);
-		
-		Scanner scanner = new Scanner(System.in);
-		String comando = "q";
-		while (!comando.equals("q")){
-			if (comando.equals("p")) {
-				Reproductor.obtenerInstancia().reproducir();
+		while (true){
+			int opcion = menu();
+			try {
+				switch(opcion) {
+					case 1:
+						reproductor.reproducir();
+						break;
+					case 2:
+						reproductor.pausar();
+						break;
+					case 3:
+						reproductor.siguiente();
+						break;
+					case 4:
+						verUsuarios(negocio);
+						break;
+					case 5:
+						verArtistas(negocio);
+						break;
+					case 6:
+						verAlbumesArtista(negocio);
+						break;
+					case 7:
+						out.println(reproductor);
+						break;
+					case 11:
+						out.printf("%d usuarios cargados.\n", ManejadorArchivos.cargarArchivoUsuarios(negocio, IOConsola.leerCadena("Ruta al archivo")));						
+						break;
+					case 12:
+						out.printf("%d artistas cargados.\n", ManejadorArchivos.cargarArchivoArtistas(negocio, IOConsola.leerCadena("Ruta al archivo")));					
+						break;
+					case 13:
+						negocio = ManejadorArchivos.DesserializarObjectify(IOConsola.leerCadena("Ruta al archivo"));
+						out.println("Se han cargado los datos del sistema.");
+						break;
+					case 14:
+						ManejadorArchivos.SerializarObjectify(negocio, IOConsola.leerCadena("Ruta al archivo"));
+						out.println("Los datos del sistema han sido guardados.");						 
+						break;
+					case 0:
+						out.println("Hasta la proxima!");
+						System.exit(0);
+						break;
+				}				
+			} catch (Exception e) {
+				out.println("Se ha detectado un error: " + e.getMessage());
+				e.printStackTrace();
 			}
-			if (comando.equals("s")) {
-				Reproductor.obtenerInstancia().pausar();
+		}		
+	}
+
+	private static void verAlbumesArtista(Objectify negocio) throws IOException {
+		long idArtista = IOConsola.leerEntero("Id artista");
+		Artista artista = negocio.buscarArtistaPorId(idArtista);
+		if (artista != null) {			
+			List<Album> albumes = new ArrayList<Album>(artista.getAlbumes());
+			out.println("Artista: " + artista.getNombre());
+			for (int i = 0; i < albumes.size(); i++) {
+				Album album = albumes.get(i);
+				out.printf("%d. %s\n", i+1, album.getTitulo());
 			}
-			if (comando.equals("n")) {
-				Reproductor.obtenerInstancia().siguiente();
+			int albumSeleccionado = IOConsola.leerEntero("Album para agregar a la cola de reproducción (0 = ninguno)");
+			if (albumSeleccionado > 0 && albumSeleccionado <= albumes.size()) {
+				Reproductor.obtenerInstancia().agregarACola(albumes.get(albumSeleccionado-1));
 			}
-			
-			comando = scanner.nextLine();
+		} else {
+			out.println("El artista no existe.");
 		}
-		scanner.close();
-		System.exit(0);		
+	}
+
+	private static void verArtistas(Objectify negocio) {
+		Collection<Artista> artistas = negocio.getArtistas();
+		for (Artista a : artistas) {
+			out.println(a);
+		}
+	}
+
+	private static void verUsuarios(Objectify negocio) {
+		Collection<Usuario> usuarios = negocio.getUsuarios();
+		for (Usuario u : usuarios) {
+			out.println(u);
+		}
+	}
+
+	private static int menu() throws IOException {
+		out.println();
+		out.println("Bienvenido a Objectify!");
+		out.println("Estas son las opciones disponibles:");
+		out.println("1. Reproducir");
+		out.println("2. Pausar");
+		out.println("3. Siguiente");
+		out.println("4. Ver todos los usuarios");
+		out.println("5. Ver todos los artistas");
+		out.println("6. Ver albumes artista");
+		out.println("7. Ver cola de reproducción");
+		out.println("11. Cargar usuarios");
+		out.println("12. Cargar artistas, albumes y canciones");
+		out.println("13. Cargar todo");
+		out.println("14. Guardar todo");
+		out.println("0. Salir");
+		return IOConsola.leerEntero("Seleccione una opción");
 	}
 
 }

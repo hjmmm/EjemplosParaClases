@@ -1,5 +1,6 @@
 package co.edu.javeriana.objectify.negocio;
 
+import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,7 +11,9 @@ import java.util.List;
  * @author Javier Morales
  *
  */
-public class Concierto {
+public class Concierto implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	private static long CONSECUTIVO = 0;
 	

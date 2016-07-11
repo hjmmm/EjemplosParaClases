@@ -1,5 +1,6 @@
 package co.edu.javeriana.objectify.negocio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -9,8 +10,10 @@ import java.util.List;
  * @author Javier Morales
  *
  */
-public class Album {
+public class Album implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	private String titulo;
 	private String caratula;
 	private boolean exclusivo;

@@ -1,11 +1,14 @@
 package co.edu.javeriana.objectify.negocio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public abstract class Usuario {
+public abstract class Usuario implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	private static long CONSECUTIVO = 0;
 	
@@ -57,7 +60,7 @@ public abstract class Usuario {
 
 	@Override
 	public String toString() {
-		return "\n\tUsuario [id=" + id + ", nombre=" + nombre + ", notificaciones=" + notificaciones + "]";
+		return String.format("Id: %d \t Nombre: %s", id, nombre);
 	}
 
 }

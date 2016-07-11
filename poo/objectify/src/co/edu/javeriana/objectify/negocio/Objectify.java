@@ -1,6 +1,8 @@
 package co.edu.javeriana.objectify.negocio;
 
+import java.io.Serializable;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -13,8 +15,10 @@ import java.util.Set;
  * @author Javier Morales
  *
  */
-public class Objectify {
+public class Objectify implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	private Map<Long, Artista> artistas;
 	private Map<Long, Concierto> conciertos;
 	private Map<Long, Usuario> usuarios;
@@ -169,6 +173,26 @@ public class Objectify {
 	@Override
 	public String toString() {
 		return "Objectify [\nartistas=" + artistas + ", \nconciertos=" + conciertos + ", \nusuarios=" + usuarios + "]";
+	}
+
+	/**
+	 * Obtiene una copia de la lista de usuarios en el sistema.
+	 * @return
+	 */
+	public Collection<Usuario> getUsuarios() {
+		return new ArrayList<Usuario>(this.usuarios.values());
+	}
+
+	/**
+	 * Obtiene una copia de la lista de artistas en el sistema.
+	 * @return
+	 */
+	public Collection<Artista> getArtistas() {
+		return new ArrayList<Artista>(this.artistas.values());
+	}
+
+	public Artista buscarArtistaPorId(long idArtista) {
+		return this.artistas.get(idArtista);
 	}
 
 }

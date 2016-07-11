@@ -3,9 +3,13 @@ package co.edu.javeriana.objectify.archivos;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -14,7 +18,6 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -136,6 +139,7 @@ public class ManejadorArchivos {
 					cargados++;
 				}
 		}
+		flujo.close();
 		return cargados;
 	}
 
@@ -164,5 +168,36 @@ public class ManejadorArchivos {
 			negocio.agregarCancion(idArtista, tituloAlbum, cancion.get("nombre").toString(), ((Number)cancion.get("duracion")).intValue(), cancion.get("rutaArchivo").toString());
 		}		
 	}	
+	
+	/**
+	 * Serializa un objeto de clase Objectify a un archivo.
+	 * @param negocio
+	 * @param ruta
+	 * @throws IOException 
+	 */
+	public static void SerializarObjectify(Objectify negocio, String ruta) throws IOException {
+		File archivo = new File(ruta);
+		OutputStream flujo = new FileOutputStream(archivo);
+		ObjectOutputStream flujoObjetos = new ObjectOutputStream(flujo);
+		flujoObjetos.writeObject(negocio);
+		flujoObjetos.close();
+	}
+	
+	/**
+	 * Lee un archivo con un objeto de tipo Objectify serializado y lo carga a memoria. 
+	 * @param ruta
+	 * @return 
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
+	public static Objectify DesserializarObjectify(String ruta) throws ClassNotFoundException, IOException {
+		Objectify negocio;
+		File archivo = new File(ruta);
+		InputStream flujo = new FileInputStream(archivo);
+		ObjectInputStream flujoObjetos = new ObjectInputStream(flujo);
+		negocio = (Objectify) flujoObjetos.readObject();
+		flujoObjetos.close();		
+		return negocio;
+	}
 	
 }

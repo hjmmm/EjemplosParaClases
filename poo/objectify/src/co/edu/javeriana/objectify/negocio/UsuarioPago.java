@@ -6,6 +6,8 @@ import java.util.List;
 
 public class UsuarioPago extends Usuario {
 
+	private static final long serialVersionUID = 1L;
+
 	private ZonedDateTime vencimientoSuscripcion;
 	private List<Cancion> favoritas;
 	
@@ -33,5 +35,10 @@ public class UsuarioPago extends Usuario {
 			this.favoritas.add(cancion);
 		}
 	}
+
+	@Override
+	public String toString() {
+		return super.toString() + String.format("\tVencimiento: %tF", vencimientoSuscripcion);
+	}	
 
 }

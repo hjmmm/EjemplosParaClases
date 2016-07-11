@@ -2,6 +2,8 @@ package co.edu.javeriana.objectify.negocio;
 
 public class NotificacionConcierto implements INotificacion {
 
+	private static final long serialVersionUID = 1L;
+
 	private Concierto concierto;
 	
 	public NotificacionConcierto(Concierto concierto) {

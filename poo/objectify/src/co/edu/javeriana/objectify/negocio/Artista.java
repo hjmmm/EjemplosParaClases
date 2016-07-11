@@ -1,5 +1,7 @@
 package co.edu.javeriana.objectify.negocio;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,7 +13,9 @@ import java.util.Set;
  * @author Javier Morales
  *
  */
-public class Artista {
+public class Artista implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	private static long CONSECUTIVO = 0;
 	
@@ -96,8 +100,11 @@ public class Artista {
 
 	@Override
 	public String toString() {
-		return "\nArtista [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", generos=" + generos
-				+ ", seguidores=" + seguidores + ", albumes=" + albumes + "]";
-	}	
+		return String.format("Id: %d \t Nombre: %s \t Generos: %s \n\t Descripcion: %s", id, nombre, generos, descripcion); 
+	}
+
+	public Collection<Album> getAlbumes() {
+		return new ArrayList<Album>(this.albumes.values());
+	}
 	
 }

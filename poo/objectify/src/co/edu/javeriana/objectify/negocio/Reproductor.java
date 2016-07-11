@@ -2,6 +2,8 @@ package co.edu.javeriana.objectify.negocio;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -32,6 +34,10 @@ public class Reproductor extends JFXPanel {
 		colaReproduccion.add(cancion);		
 	}
 
+	public void agregarACola(Album album) {
+		this.colaReproduccion.addAll(album.getCanciones());
+	}
+	
 	public void limpiarCola() {
 		// Se acabo el papel higienico, por suerte no lo necesitamos
 		this.colaReproduccion.clear();
@@ -44,6 +50,7 @@ public class Reproductor extends JFXPanel {
 				URL url;
 				this.reproduciendo = this.colaReproduccion.poll();
 				if (this.reproduciendo != null) {
+					System.out.printf("Reproduciendo: %s\n",this.reproduciendo.getNombre());
 					url = new URL(this.reproduciendo.getRutaArchivo());
 			        Media media = new Media(url.toString());
 			        this.player = new MediaPlayer(media);
@@ -70,6 +77,15 @@ public class Reproductor extends JFXPanel {
 
 	public void pausar() {
 		this.player.pause();
+	}
+	
+	public Collection<Cancion> getColaReproduccion() {
+		return new ArrayList<Cancion>(this.colaReproduccion);
+	}
+
+	@Override
+	public String toString() {
+		return "Reproduciendo: " + reproduciendo + "\nCola: " + colaReproduccion;
 	}
 
 }
