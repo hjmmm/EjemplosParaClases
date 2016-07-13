@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1251</x>
+      <y>621</y>
+      <w>135</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Cancion
+--
+- nombre: String
+- duracion: int
+- reproducciones : long
+- rutaArchivo : String
+--
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>711</x>
+      <y>306</y>
+      <w>261</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>/Usuario/
+--
+_- CONSECUTIVO: long_
+- id: long
+- nombre: String
+--
+/+ puedeEscucharAlbum(album:Album)/
++ recibirNotificacion(notificacion:Notificacion)
++ seguirArtista(artista:Artista)
++ borrarNotificaciones()
++ dejarDeSeguirArtista(artista)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>837</x>
+      <y>621</y>
+      <w>261</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>Album
+--
+- titulo: String
+- caratula: String
+- exclusivo: boolean
+--
++ agregarCancion(nombre, duracion, ruta)
++ buscarCancion(posicionCancion):Cancion</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>306</x>
+      <y>621</y>
+      <w>351</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Artista
+--
+_- CONSECUTIVO: long_
+- id: long
+- nombre: String
+- descripcion: String
+--
++ agregarAlbum(titulo, caratula, exclusivo)
++ agregarCancion(tituloAlbum, nombre, duracion, ruta)
++ notificarSeguidoresConcierto(concierto)
++ agregarSeguidor(usuario)
++ quitarSeguidor(usuario)
++ buscarCancion(nombreAlbum, posicionCancion):Cancion</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>207</x>
+      <y>0</y>
+      <w>459</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>Objectify
+--
+
+--
++ agregarUsuario(nombre:String, pago:boolean):long
++ agregarArtista(nombre, descripcion, generos):long
++ agregarAlbum(idArtista, titulo, caratula, exclusivo)
++ agregarCancion(idArtista, tituloAlbum, nombre, duracion, rutaArchivo)
++ agregarConcierto(escenario, ciudad, pais, fechaYHora):long
++ agregarArtistaConcierto(idConcierto, idArtista)
++ notificacionesUsuario(idUsuario)
++ seguirArtista(idUsuario, idArtista)
++ dejarDeSeguirArtista(idUsuario, idArtista)
++ buscarArtistasPorAproximacion(palabra) : Collection&lt;Artista&gt;
++ agregarFavoritoUsuario(idUsuario, idArtista, nombreAlbum, posicionCancion)
++ buscarAlbum(idArtista, nombreAlbum) : Album</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>711</x>
+      <y>81</y>
+      <w>198</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+INotificacion
+--
+
+--
++ obtenerMensaje():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1071</x>
+      <y>306</y>
+      <w>153</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>UsuarioBasico
+--
+
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1071</x>
+      <y>369</y>
+      <w>261</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>UsuarioPago
+--
+- vencimientoSuscripcion : ZonedDateTime
+--
++ suscripcionVigente():boolean
++ renovarSuscripcion()
++ agregarFavorita(cancion)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>387</x>
+      <y>396</y>
+      <w>198</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>Concierto
+--
+_- CONSECUTIVO: long_
+- id: long
+- escenario: String
+- ciudad: String
+- pais: String
+- fechaYHora: ZonedDateTime
+--
++ agregarArtista(artista)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>387</x>
+      <y>855</y>
+      <w>144</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
+Genero
+--
+ROCK
+JAZZ
+BLUES
+CLASSICAL
+POP
+METAL
+LATINA
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1089</x>
+      <y>648</y>
+      <w>180</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=album
+m2=canciones</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>459</x>
+      <y>792</y>
+      <w>72</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1..*
+r1=generos</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>648</x>
+      <y>648</y>
+      <w>207</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=artista
+m2=albumes</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>423</x>
+      <y>540</y>
+      <w>63</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1..*
+r1=artistas</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>486</x>
+      <y>225</y>
+      <w>81</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+r1=conciertos</panel_attributes>
+    <additional_attributes>10.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>243</x>
+      <y>225</y>
+      <w>81</w>
+      <h>459</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+r1=artistas</panel_attributes>
+    <additional_attributes>70.0;480.0;50.0;480.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>621</x>
+      <y>225</y>
+      <w>108</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+r1=usuarios</panel_attributes>
+    <additional_attributes>100.0;150.0;10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1071</x>
+      <y>90</y>
+      <w>153</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>NotificacionConcierto
+--
+- concierto: Concierto
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1071</x>
+      <y>189</y>
+      <w>153</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>NotificacionAlbum
+--
+- album: Album
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>900</x>
+      <y>90</y>
+      <w>189</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>900</x>
+      <y>126</y>
+      <w>189</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0;70.0;80.0;190.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>171</y>
+      <w>99</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n
+r1=notificaciones</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>963</x>
+      <y>333</y>
+      <w>126</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>963</x>
+      <y>369</y>
+      <w>126</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>504</x>
+      <y>459</y>
+      <w>324</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+r1=artistasSeguidos
+m2=0..*
+r2=seguidores</panel_attributes>
+    <additional_attributes>10.0;180.0;10.0;110.0;270.0;110.0;270.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1224</x>
+      <y>486</y>
+      <w>99</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+r1=favoritas
+r1pos=-70,15</panel_attributes>
+    <additional_attributes>70.0;150.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>846</x>
+      <y>819</y>
+      <w>225</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;singleton&gt;&gt;
+Reproductor
+--
+_- instancia:Reproductor_
+
+--
+_+ obtenerInstancia():Reproductor_
++ agregarACola(cancion)
++ limpiarCola()
++ reproducir()
++ pausar()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1062</x>
+      <y>720</y>
+      <w>342</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+r1=colaReproduccion</panel_attributes>
+    <additional_attributes>250.0;10.0;250.0;170.0;10.0;170.0</additional_attributes>
+  </element>
+</diagram>
