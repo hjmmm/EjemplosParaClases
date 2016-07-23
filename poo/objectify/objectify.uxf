@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>1251</x>
-      <y>621</y>
+      <y>666</y>
       <w>135</w>
       <h>108</h>
     </coordinates>
@@ -25,7 +25,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>711</x>
-      <y>306</y>
+      <y>351</y>
       <w>261</w>
       <h>162</h>
     </coordinates>
@@ -46,7 +46,7 @@ _- CONSECUTIVO: long_
     <id>UMLClass</id>
     <coordinates>
       <x>837</x>
-      <y>621</y>
+      <y>666</y>
       <w>261</w>
       <h>117</h>
     </coordinates>
@@ -64,7 +64,7 @@ _- CONSECUTIVO: long_
     <id>UMLClass</id>
     <coordinates>
       <x>306</x>
-      <y>621</y>
+      <y>666</y>
       <w>351</w>
       <h>180</h>
     </coordinates>
@@ -87,7 +87,7 @@ _- CONSECUTIVO: long_
     <id>UMLClass</id>
     <coordinates>
       <x>207</x>
-      <y>0</y>
+      <y>45</y>
       <w>459</w>
       <h>234</h>
     </coordinates>
@@ -113,7 +113,7 @@ _- CONSECUTIVO: long_
     <id>UMLClass</id>
     <coordinates>
       <x>711</x>
-      <y>81</y>
+      <y>126</y>
       <w>198</w>
       <h>99</h>
     </coordinates>
@@ -129,7 +129,7 @@ INotificacion
     <id>UMLClass</id>
     <coordinates>
       <x>1071</x>
-      <y>306</y>
+      <y>351</y>
       <w>153</w>
       <h>54</h>
     </coordinates>
@@ -143,7 +143,7 @@ INotificacion
     <id>UMLClass</id>
     <coordinates>
       <x>1071</x>
-      <y>369</y>
+      <y>414</y>
       <w>261</w>
       <h>126</h>
     </coordinates>
@@ -160,7 +160,7 @@ INotificacion
     <id>UMLClass</id>
     <coordinates>
       <x>387</x>
-      <y>396</y>
+      <y>441</y>
       <w>198</w>
       <h>153</h>
     </coordinates>
@@ -180,7 +180,7 @@ _- CONSECUTIVO: long_
     <id>UMLClass</id>
     <coordinates>
       <x>387</x>
-      <y>855</y>
+      <y>900</y>
       <w>144</w>
       <h>153</h>
     </coordinates>
@@ -201,7 +201,7 @@ LATINA
     <id>Relation</id>
     <coordinates>
       <x>1089</x>
-      <y>648</y>
+      <y>693</y>
       <w>180</w>
       <h>36</h>
     </coordinates>
@@ -214,7 +214,7 @@ m2=canciones</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>459</x>
-      <y>792</y>
+      <y>837</y>
       <w>72</w>
       <h>81</h>
     </coordinates>
@@ -227,7 +227,7 @@ r1=generos</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>648</x>
-      <y>648</y>
+      <y>693</y>
       <w>207</w>
       <h>36</h>
     </coordinates>
@@ -240,7 +240,7 @@ m2=albumes</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>423</x>
-      <y>540</y>
+      <y>585</y>
       <w>63</w>
       <h>99</h>
     </coordinates>
@@ -253,7 +253,7 @@ r1=artistas</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>486</x>
-      <y>225</y>
+      <y>270</y>
       <w>81</w>
       <h>189</h>
     </coordinates>
@@ -266,7 +266,7 @@ r1=conciertos</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>243</x>
-      <y>225</y>
+      <y>270</y>
       <w>81</w>
       <h>459</h>
     </coordinates>
@@ -279,7 +279,7 @@ r1=artistas</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>621</x>
-      <y>225</y>
+      <y>270</y>
       <w>108</w>
       <h>162</h>
     </coordinates>
@@ -292,7 +292,7 @@ r1=usuarios</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1071</x>
-      <y>90</y>
+      <y>135</y>
       <w>153</w>
       <h>72</h>
     </coordinates>
@@ -306,7 +306,7 @@ r1=usuarios</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1071</x>
-      <y>189</y>
+      <y>234</y>
       <w>153</w>
       <h>72</h>
     </coordinates>
@@ -320,7 +320,7 @@ r1=usuarios</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>900</x>
-      <y>90</y>
+      <y>135</y>
       <w>189</w>
       <h>27</h>
     </coordinates>
@@ -331,7 +331,7 @@ r1=usuarios</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>900</x>
-      <y>126</y>
+      <y>171</y>
       <w>189</w>
       <h>90</h>
     </coordinates>
@@ -342,7 +342,7 @@ r1=usuarios</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>792</x>
-      <y>171</y>
+      <y>216</y>
       <w>99</w>
       <h>153</h>
     </coordinates>
@@ -355,7 +355,7 @@ r1=notificaciones</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>963</x>
-      <y>333</y>
+      <y>378</y>
       <w>126</w>
       <h>27</h>
     </coordinates>
@@ -366,7 +366,7 @@ r1=notificaciones</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>963</x>
-      <y>369</y>
+      <y>414</y>
       <w>126</w>
       <h>27</h>
     </coordinates>
@@ -377,7 +377,7 @@ r1=notificaciones</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>504</x>
-      <y>459</y>
+      <y>504</y>
       <w>324</w>
       <h>180</h>
     </coordinates>
@@ -392,7 +392,7 @@ r2=seguidores</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1224</x>
-      <y>486</y>
+      <y>531</y>
       <w>99</w>
       <h>153</h>
     </coordinates>
@@ -406,7 +406,7 @@ r1pos=-70,15</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>846</x>
-      <y>819</y>
+      <y>864</y>
       <w>225</w>
       <h>153</h>
     </coordinates>
@@ -427,7 +427,7 @@ _+ obtenerInstancia():Reproductor_
     <id>Relation</id>
     <coordinates>
       <x>1062</x>
-      <y>720</y>
+      <y>765</y>
       <w>342</w>
       <h>171</h>
     </coordinates>
