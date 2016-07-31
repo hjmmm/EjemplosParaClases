@@ -12,11 +12,20 @@ public class UsuarioPago extends Usuario {
 
 	private ZonedDateTime vencimientoSuscripcion;
 	private List<Cancion> favoritas;
+	private final float valorPagado;
 	
 	public UsuarioPago(String nombre, ZonedDateTime vencimientoSuscripcion) {
 		super(nombre);
 		this.vencimientoSuscripcion = vencimientoSuscripcion;
 		this.favoritas = new ArrayList<Cancion>();
+		this.valorPagado = COSTO_SUSCRIPCION_MES;
+	}
+
+	public UsuarioPago(String nombre, ZonedDateTime vencimientoSuscripcion, float descuento) {
+		super(nombre);
+		this.vencimientoSuscripcion = vencimientoSuscripcion;
+		this.favoritas = new ArrayList<Cancion>();
+		this.valorPagado = COSTO_SUSCRIPCION_MES - COSTO_SUSCRIPCION_MES * descuento;
 	}
 	
 	public boolean suscripcionVigente(){
@@ -41,6 +50,10 @@ public class UsuarioPago extends Usuario {
 	@Override
 	public String toString() {
 		return super.toString() + String.format("\tVencimiento: %tF", vencimientoSuscripcion);
+	}
+
+	public float getValorPagado() {
+		return valorPagado;
 	}	
 
 }
