@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>9</zoom_level>
+  <zoom_level>6</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1251</x>
-      <y>666</y>
-      <w>135</w>
-      <h>108</h>
+      <x>816</x>
+      <y>504</y>
+      <w>132</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>Cancion
 --
@@ -24,10 +24,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>711</x>
-      <y>351</y>
-      <w>261</w>
-      <h>162</h>
+      <x>414</x>
+      <y>294</y>
+      <w>222</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>/Usuario/
 --
@@ -45,10 +45,10 @@ _- CONSECUTIVO: long_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>837</x>
-      <y>666</y>
-      <w>261</w>
-      <h>117</h>
+      <x>444</x>
+      <y>504</y>
+      <w>234</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>Album
 --
@@ -57,16 +57,17 @@ _- CONSECUTIVO: long_
 - exclusivo: boolean
 --
 + agregarCancion(nombre, duracion, ruta)
-+ buscarCancion(posicionCancion):Cancion</panel_attributes>
++ buscarCancion(posicionCancion):Cancion
++ buscarCancion(nombreCancion):Cancion</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>306</x>
-      <y>666</y>
-      <w>351</w>
-      <h>180</h>
+      <x>126</x>
+      <y>552</y>
+      <w>294</w>
+      <h>162</h>
     </coordinates>
     <panel_attributes>Artista
 --
@@ -80,16 +81,17 @@ _- CONSECUTIVO: long_
 + notificarSeguidoresConcierto(concierto)
 + agregarSeguidor(usuario)
 + quitarSeguidor(usuario)
-+ buscarCancion(nombreAlbum, posicionCancion):Cancion</panel_attributes>
++ buscarCancion(nombreAlbum, posicionCancion):Cancion
++ buscarCancion(nombreCancion):Cancion</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>207</x>
-      <y>45</y>
-      <w>459</w>
-      <h>234</h>
+      <x>0</x>
+      <y>66</y>
+      <w>384</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>Objectify
 --
@@ -112,10 +114,10 @@ _- CONSECUTIVO: long_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>711</x>
-      <y>126</y>
-      <w>198</w>
-      <h>99</h>
+      <x>414</x>
+      <y>144</y>
+      <w>132</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>&lt;&lt;interface&gt;&gt;
 INotificacion
@@ -128,10 +130,10 @@ INotificacion
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1071</x>
-      <y>351</y>
-      <w>153</w>
-      <h>54</h>
+      <x>696</x>
+      <y>294</y>
+      <w>102</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>UsuarioBasico
 --
@@ -142,10 +144,10 @@ INotificacion
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1071</x>
-      <y>414</y>
-      <w>261</w>
-      <h>126</h>
+      <x>696</x>
+      <y>336</y>
+      <w>222</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>UsuarioPago
 --
@@ -159,10 +161,10 @@ INotificacion
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>387</x>
-      <y>441</y>
-      <w>198</w>
-      <h>153</h>
+      <x>198</x>
+      <y>354</y>
+      <w>162</w>
+      <h>132</h>
     </coordinates>
     <panel_attributes>Concierto
 --
@@ -179,10 +181,10 @@ _- CONSECUTIVO: long_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>387</x>
-      <y>900</y>
-      <w>144</w>
-      <h>153</h>
+      <x>180</x>
+      <y>774</y>
+      <w>96</w>
+      <h>102</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enumeration&gt;&gt;
 Genero
@@ -200,62 +202,62 @@ LATINA
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1089</x>
-      <y>693</y>
-      <w>180</w>
-      <h>36</h>
+      <x>672</x>
+      <y>522</y>
+      <w>156</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=album
 m2=canciones</panel_attributes>
-    <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;240.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>459</x>
-      <y>837</y>
-      <w>72</w>
-      <h>81</h>
+      <x>228</x>
+      <y>708</y>
+      <w>54</w>
+      <h>78</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1..*
 r1=generos</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>648</x>
-      <y>693</y>
-      <w>207</w>
-      <h>36</h>
+      <x>414</x>
+      <y>594</y>
+      <w>114</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=artista
 m2=albumes</panel_attributes>
-    <additional_attributes>10.0;10.0;210.0;10.0</additional_attributes>
+    <additional_attributes>10.0;60.0;100.0;60.0;100.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>423</x>
-      <y>585</y>
-      <w>63</w>
-      <h>99</h>
+      <x>222</x>
+      <y>480</y>
+      <w>54</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1..*
 r1=artistas</panel_attributes>
-    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>486</x>
-      <y>270</y>
-      <w>81</w>
-      <h>189</h>
+      <x>264</x>
+      <y>240</y>
+      <w>66</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
@@ -265,23 +267,23 @@ r1=conciertos</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>243</x>
-      <y>270</y>
-      <w>81</w>
-      <h>459</h>
+      <x>126</x>
+      <y>240</y>
+      <w>54</w>
+      <h>318</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
 r1=artistas</panel_attributes>
-    <additional_attributes>70.0;480.0;50.0;480.0;50.0;10.0</additional_attributes>
+    <additional_attributes>10.0;510.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>621</x>
-      <y>270</y>
-      <w>108</w>
-      <h>162</h>
+      <x>354</x>
+      <y>240</y>
+      <w>72</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
@@ -291,10 +293,10 @@ r1=usuarios</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1071</x>
-      <y>135</y>
-      <w>153</w>
-      <h>72</h>
+      <x>654</x>
+      <y>150</y>
+      <w>114</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>NotificacionConcierto
 --
@@ -305,10 +307,10 @@ r1=usuarios</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1071</x>
-      <y>234</y>
-      <w>153</w>
-      <h>72</h>
+      <x>654</x>
+      <y>216</y>
+      <w>102</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>NotificacionAlbum
 --
@@ -319,10 +321,10 @@ r1=usuarios</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>900</x>
-      <y>135</y>
-      <w>189</w>
-      <h>27</h>
+      <x>540</x>
+      <y>150</y>
+      <w>126</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;190.0;10.0</additional_attributes>
@@ -330,10 +332,10 @@ r1=usuarios</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>900</x>
-      <y>171</y>
-      <w>189</w>
-      <h>90</h>
+      <x>540</x>
+      <y>174</y>
+      <w>126</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;10.0;70.0;80.0;190.0;80.0</additional_attributes>
@@ -341,10 +343,10 @@ r1=usuarios</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>792</x>
-      <y>216</y>
-      <w>99</w>
-      <h>153</h>
+      <x>468</x>
+      <y>204</y>
+      <w>84</w>
+      <h>102</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..n
@@ -354,47 +356,47 @@ r1=notificaciones</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>963</x>
-      <y>378</y>
-      <w>126</w>
-      <h>27</h>
+      <x>630</x>
+      <y>312</y>
+      <w>78</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>963</x>
+      <x>630</x>
+      <y>336</y>
+      <w>78</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>276</x>
       <y>414</y>
-      <w>126</w>
-      <h>27</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>504</x>
-      <y>504</y>
-      <w>324</w>
-      <h>180</h>
+      <w>228</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
 r1=artistasSeguidos
 m2=0..*
 r2=seguidores</panel_attributes>
-    <additional_attributes>10.0;180.0;10.0;110.0;270.0;110.0;270.0;10.0</additional_attributes>
+    <additional_attributes>10.0;230.0;10.0;170.0;270.0;170.0;270.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1224</x>
-      <y>531</y>
-      <w>99</w>
-      <h>153</h>
+      <x>798</x>
+      <y>414</y>
+      <w>66</w>
+      <h>102</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
@@ -405,10 +407,10 @@ r1pos=-70,15</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>846</x>
-      <y>864</y>
-      <w>225</w>
-      <h>153</h>
+      <x>504</x>
+      <y>636</y>
+      <w>192</w>
+      <h>132</h>
     </coordinates>
     <panel_attributes>&lt;&lt;singleton&gt;&gt;
 Reproductor
@@ -417,6 +419,7 @@ _- instancia:Reproductor_
 
 --
 _+ obtenerInstancia():Reproductor_
+- Reproductor()
 + agregarACola(cancion)
 + limpiarCola()
 + reproducir()
@@ -426,14 +429,14 @@ _+ obtenerInstancia():Reproductor_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1062</x>
-      <y>765</y>
-      <w>342</w>
-      <h>171</h>
+      <x>690</x>
+      <y>588</y>
+      <w>246</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
 r1=colaReproduccion</panel_attributes>
-    <additional_attributes>250.0;10.0;250.0;170.0;10.0;170.0</additional_attributes>
+    <additional_attributes>250.0;10.0;250.0;140.0;10.0;140.0</additional_attributes>
   </element>
 </diagram>

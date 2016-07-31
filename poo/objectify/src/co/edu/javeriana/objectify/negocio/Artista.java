@@ -17,7 +17,7 @@ public class Artista implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private static long CONSECUTIVO = 0;
+	private static long CONSECUTIVO = 0; 
 	
 	private long id;
 	private String nombre;
@@ -96,6 +96,17 @@ public class Artista implements Serializable {
 	public Cancion buscarCancion(String nombreAlbum, int posicionCancion) {
 		Album album = this.albumes.get(nombreAlbum);
 		return album.buscarCancion(posicionCancion);
+	}
+	
+	public Cancion buscarCancion(String nombreCancion) {
+		Cancion resultado; 
+		for (Album album : this.albumes.values()) {
+			resultado = album.buscarCancion(nombreCancion);
+			if (resultado != null) {
+				return resultado;
+			}
+		}
+		return null;
 	}
 
 	@Override

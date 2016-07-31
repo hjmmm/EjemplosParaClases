@@ -7,6 +7,8 @@ import java.util.List;
 public class UsuarioPago extends Usuario {
 
 	private static final long serialVersionUID = 1L;
+	
+	public static final float COSTO_SUSCRIPCION_MES = 11000; 
 
 	private ZonedDateTime vencimientoSuscripcion;
 	private List<Cancion> favoritas;

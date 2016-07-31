@@ -73,6 +73,36 @@ public class Album implements Serializable {
 		return this.canciones.get(posicionCancion);
 	}
 
+	public Cancion buscarCancion(String nombreCancion) {
+		for(Cancion cancion : this.canciones) {
+			if (compararCadenasSimple(nombreCancion, cancion.getNombre())){
+				return cancion;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * Método auxiliar para comparar cadenas sin tener en cuenta espacios al inicio y fin ni 
+	 * hacer distincion entre mayusculas y minusculas. 
+	 * Este método debería ser parte de una librería de funciones utilitarias o de la clase 
+	 * canción. Esta aqui solo para mostrar crear un método privado auxiliar.     
+	 * @param cadena1
+	 * @param cadena2 
+	 * @return true si las cadenas son iguales dentro de los parametros de la comparación
+	 */
+	private boolean compararCadenasSimple(String cadena1, String cadena2) {
+		// Si cadena1 es null cadena2 debe serlo tambien para que sean iguales
+		if (cadena1 == null) { return cadena2 == null; } 
+		// Si en este punto cadena2 es null las cadenas no son iguales
+		if (cadena2 == null) { return false; }
+		// A ambas cadenas se le aplican las mismas operaciones
+		cadena1 = cadena1.trim().toLowerCase();
+		cadena2 = cadena2.trim().toLowerCase();
+		// Finalmente retoramos el resultado de equals despues de simplificar las cadenas 
+		return cadena1.equals(cadena2);
+	}
+	
 	@Override
 	public String toString() {
 		return "\n\tAlbum [titulo=" + titulo + ", caratula=" + caratula + ", exclusivo=" + exclusivo + ", canciones=" + canciones + "]";
