@@ -122,6 +122,7 @@ public class Objectify implements Serializable {
 		Artista artista = this.artistas.get(idArtista);
 		Usuario usuario = this.usuarios.get(idUsuario);
 		usuario.seguirArtista(artista);
+		artista.agregarSeguidor(usuario);
 	}
 
 	/**
@@ -133,6 +134,7 @@ public class Objectify implements Serializable {
 		Artista artista = this.artistas.get(idArtista);
 		Usuario usuario = this.usuarios.get(idUsuario);
 		usuario.dejarDeSeguirArtista(artista);
+		artista.quitarSeguidor(usuario);
 	} 
 	
 	/**

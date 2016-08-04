@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1026</x>
-      <y>558</y>
+      <x>1218</x>
+      <y>678</y>
       <w>132</w>
       <h>90</h>
     </coordinates>
@@ -24,8 +24,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>624</x>
-      <y>348</y>
+      <x>816</x>
+      <y>468</y>
       <w>222</w>
       <h>126</h>
     </coordinates>
@@ -45,8 +45,8 @@ _- CONSECUTIVO: long_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>654</x>
-      <y>558</y>
+      <x>846</x>
+      <y>678</y>
       <w>234</w>
       <h>96</h>
     </coordinates>
@@ -64,8 +64,8 @@ _- CONSECUTIVO: long_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>336</x>
-      <y>606</y>
+      <x>528</x>
+      <y>726</y>
       <w>294</w>
       <h>162</h>
     </coordinates>
@@ -88,8 +88,8 @@ _- CONSECUTIVO: long_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>210</x>
-      <y>120</y>
+      <x>402</x>
+      <y>240</y>
       <w>384</w>
       <h>180</h>
     </coordinates>
@@ -114,8 +114,8 @@ _- CONSECUTIVO: long_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>624</x>
-      <y>198</y>
+      <x>930</x>
+      <y>336</y>
       <w>132</w>
       <h>66</h>
     </coordinates>
@@ -130,8 +130,8 @@ INotificacion
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>906</x>
-      <y>348</y>
+      <x>1098</x>
+      <y>468</y>
       <w>102</w>
       <h>36</h>
     </coordinates>
@@ -144,8 +144,8 @@ INotificacion
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>906</x>
-      <y>390</y>
+      <x>1098</x>
+      <y>510</y>
       <w>222</w>
       <h>84</h>
     </coordinates>
@@ -161,8 +161,8 @@ INotificacion
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>408</x>
-      <y>408</y>
+      <x>600</x>
+      <y>528</y>
       <w>162</w>
       <h>132</h>
     </coordinates>
@@ -181,8 +181,8 @@ _- CONSECUTIVO: long_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>390</x>
-      <y>828</y>
+      <x>582</x>
+      <y>948</y>
       <w>96</w>
       <h>102</h>
     </coordinates>
@@ -202,8 +202,8 @@ LATINA
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>882</x>
-      <y>576</y>
+      <x>1074</x>
+      <y>696</y>
       <w>156</w>
       <h>24</h>
     </coordinates>
@@ -215,8 +215,8 @@ m2=canciones</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>438</x>
-      <y>762</y>
+      <x>630</x>
+      <y>882</y>
       <w>54</w>
       <h>78</h>
     </coordinates>
@@ -228,8 +228,8 @@ r1=generos</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>624</x>
-      <y>648</y>
+      <x>816</x>
+      <y>768</y>
       <w>114</w>
       <h>54</h>
     </coordinates>
@@ -241,8 +241,8 @@ m2=albumes</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>432</x>
-      <y>534</y>
+      <x>624</x>
+      <y>654</y>
       <w>54</w>
       <h>84</h>
     </coordinates>
@@ -254,47 +254,50 @@ r1=artistas</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>474</x>
-      <y>294</y>
+      <x>666</x>
+      <y>414</y>
       <w>66</w>
       <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
-r1=conciertos</panel_attributes>
+r1=conciertos
+m2=1</panel_attributes>
     <additional_attributes>10.0;190.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>294</y>
+      <x>528</x>
+      <y>414</y>
       <w>54</w>
       <h>318</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
-r1=artistas</panel_attributes>
+r1=artistas
+m2=1</panel_attributes>
     <additional_attributes>10.0;510.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>564</x>
-      <y>294</y>
+      <x>756</x>
+      <y>414</y>
       <w>72</w>
       <h>108</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
+m2=1
 r1=usuarios</panel_attributes>
     <additional_attributes>100.0;150.0;10.0;150.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>864</x>
-      <y>204</y>
+      <x>1170</x>
+      <y>342</y>
       <w>114</w>
       <h>48</h>
     </coordinates>
@@ -307,8 +310,8 @@ r1=usuarios</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>864</x>
-      <y>270</y>
+      <x>1170</x>
+      <y>408</y>
       <w>102</w>
       <h>48</h>
     </coordinates>
@@ -321,8 +324,8 @@ r1=usuarios</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>750</x>
-      <y>204</y>
+      <x>1056</x>
+      <y>342</y>
       <w>126</w>
       <h>18</h>
     </coordinates>
@@ -332,8 +335,8 @@ r1=usuarios</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>750</x>
-      <y>228</y>
+      <x>1056</x>
+      <y>366</y>
       <w>126</w>
       <h>60</h>
     </coordinates>
@@ -343,21 +346,21 @@ r1=usuarios</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>678</x>
-      <y>258</y>
+      <x>984</x>
+      <y>396</y>
       <w>84</w>
-      <h>102</h>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..n
 r1=notificaciones</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>840</x>
-      <y>366</y>
+      <x>1032</x>
+      <y>486</y>
       <w>78</w>
       <h>18</h>
     </coordinates>
@@ -367,8 +370,8 @@ r1=notificaciones</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>840</x>
-      <y>390</y>
+      <x>1032</x>
+      <y>510</y>
       <w>78</w>
       <h>18</h>
     </coordinates>
@@ -378,13 +381,12 @@ r1=notificaciones</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>486</x>
-      <y>468</y>
+      <x>678</x>
+      <y>588</y>
       <w>228</w>
       <h>150</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..*
+    <panel_attributes>m1=0..*
 r1=artistasSeguidos
 m2=0..*
 r2=seguidores</panel_attributes>
@@ -393,8 +395,8 @@ r2=seguidores</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1008</x>
-      <y>468</y>
+      <x>1200</x>
+      <y>588</y>
       <w>66</w>
       <h>102</h>
     </coordinates>
@@ -407,10 +409,10 @@ r1pos=-70,15</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>714</x>
-      <y>690</y>
+      <x>810</x>
+      <y>156</y>
       <w>192</w>
-      <h>132</h>
+      <h>156</h>
     </coordinates>
     <panel_attributes>&lt;&lt;singleton&gt;&gt;
 Reproductor
@@ -429,14 +431,77 @@ _+ obtenerInstancia():Reproductor_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>900</x>
-      <y>642</y>
-      <w>246</w>
-      <h>96</h>
+      <x>996</x>
+      <y>186</y>
+      <w>492</w>
+      <h>582</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
 r1=colaReproduccion</panel_attributes>
-    <additional_attributes>250.0;10.0;250.0;140.0;10.0;140.0</additional_attributes>
+    <additional_attributes>590.0;940.0;800.0;940.0;800.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>864</x>
+      <y>306</y>
+      <w>78</w>
+      <h>174</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+r2=usuarioActivo
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>996</x>
+      <y>240</y>
+      <w>456</w>
+      <h>468</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..1
+r1=reproduciendo</panel_attributes>
+    <additional_attributes>590.0;750.0;740.0;750.0;740.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>126</x>
+      <y>162</y>
+      <w>192</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>ObjectifyConsola
+--
+
+--
+_+main(args:String[]):void_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>204</x>
+      <y>234</y>
+      <w>210</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>330.0;140.0;10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>312</x>
+      <y>198</y>
+      <w>510</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>830.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

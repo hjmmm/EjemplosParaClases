@@ -39,12 +39,10 @@ public abstract class Usuario implements Serializable {
 	}
 	
 	public void seguirArtista(Artista artista) {
-		artista.agregarSeguidor(this);
 		this.artistasSeguidos.add(artista);
 	}
 	
 	public void dejarDeSeguirArtista(Artista artista) {
-		artista.quitarSeguidor(this);
 		this.artistasSeguidos.remove(artista);
 	}
 	
