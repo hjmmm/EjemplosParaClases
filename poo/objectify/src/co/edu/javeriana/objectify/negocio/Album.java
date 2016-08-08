@@ -25,7 +25,7 @@ public class Album implements Serializable {
 		this.caratula = caratula;
 		this.exclusivo = exclusivo;
 		this.setArtista(artista);
-		this.canciones = new ArrayList<>();
+		this.canciones = new ArrayList<Cancion>();
 	}
 
 	public String getTitulo() {
@@ -65,8 +65,12 @@ public class Album implements Serializable {
 		this.canciones.add(cancion);
 	}
 	
+	public void eliminarCancion(int posicionCancion) {
+		this.canciones.remove(posicionCancion);
+	}
+	
 	public Collection<Cancion> getCanciones() {
-		return new ArrayList<>(this.canciones);
+		return new ArrayList<Cancion>(this.canciones);
 	}
 
 	public Cancion buscarCancion(int posicionCancion) {
