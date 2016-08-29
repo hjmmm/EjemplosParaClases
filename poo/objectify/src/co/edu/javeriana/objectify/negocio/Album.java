@@ -10,7 +10,7 @@ import java.util.List;
  * @author Javier Morales
  *
  */
-public class Album implements Serializable {
+public class Album implements Serializable, Comparable<Album> {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -111,5 +111,10 @@ public class Album implements Serializable {
 	public String toString() {
 		return "\n\tAlbum [titulo=" + titulo + ", caratula=" + caratula + ", exclusivo=" + exclusivo + ", canciones=" + canciones + "]";
 	}
-	
+
+	@Override
+	public int compareTo(Album o) {
+		return this.titulo.compareTo(o.titulo);
+	}
+
 }

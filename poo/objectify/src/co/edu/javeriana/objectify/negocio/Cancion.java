@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author Javier Morales
  *
  */
-public class Cancion implements Serializable {
+public class Cancion implements Serializable, Comparable<Cancion> {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -63,6 +63,11 @@ public class Cancion implements Serializable {
 	public String toString() {
 		return "\n\t\tCancion [nombre=" + nombre + ", duracion=" + duracion + ", reproducciones=" + reproducciones
 				+ ", rutaArchivo=" + rutaArchivo + "]";
+	}
+
+	@Override
+	public int compareTo(Cancion o) {
+		return this.nombre.compareTo(o.nombre);
 	}
 		
 }

@@ -4,7 +4,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 import javafx.embed.swing.JFXPanel;
@@ -89,6 +91,14 @@ public class Reproductor extends JFXPanel {
 				e.printStackTrace();
 			} 
 		}
+	}
+	
+	public void ordenarCancionesPorNombre() {
+		Collections.sort((List<Cancion>)colaReproduccion);
+	}
+	
+	public void ordenarCancionesPorAlbumYDuracion(){
+		Collections.sort((List<Cancion>)colaReproduccion, new CancionAlbumYDuracionComparator());
 	}
 	
 	public void siguiente() {
