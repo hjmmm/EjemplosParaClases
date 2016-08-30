@@ -93,14 +93,6 @@ public class Reproductor extends JFXPanel {
 		}
 	}
 	
-	public void ordenarCancionesPorNombre() {
-		Collections.sort((List<Cancion>)colaReproduccion);
-	}
-	
-	public void ordenarCancionesPorAlbumYDuracion(){
-		Collections.sort((List<Cancion>)colaReproduccion, new CancionAlbumYDuracionComparator());
-	}
-	
 	public void siguiente() {
 		this.player.stop();
 		this.player = null;
@@ -109,6 +101,18 @@ public class Reproductor extends JFXPanel {
 
 	public void pausar() {
 		this.player.pause();
+	}
+
+	public void ordenarCancionesPorNombre() {
+		Collections.sort((LinkedList<Cancion>)colaReproduccion);
+	}
+	
+	public void ordenarCancionesPorAlbumYDuracion(){
+		Collections.sort((LinkedList<Cancion>)colaReproduccion, new CancionAlbumYDuracionComparator());
+	}	
+	
+	public void shuffle() {
+		Collections.shuffle((LinkedList<?>) colaReproduccion);
 	}
 	
 	public Collection<Cancion> getColaReproduccion() {

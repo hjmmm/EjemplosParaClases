@@ -68,6 +68,11 @@ public class Album implements Serializable, Comparable<Album> {
 	public void eliminarCancion(int posicionCancion) {
 		this.canciones.remove(posicionCancion);
 	}
+
+	public void eliminarCancion(String nombreCancion) {
+		Cancion paraEliminar = buscarCancion(nombreCancion);
+		this.canciones.remove(paraEliminar);
+	}	
 	
 	public Collection<Cancion> getCanciones() {
 		return new ArrayList<Cancion>(this.canciones);
