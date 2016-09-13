@@ -25,6 +25,10 @@ public abstract class Usuario implements Serializable {
 		this.artistasSeguidos = new HashSet<Artista>();
 		this.notificaciones = new ArrayList<INotificacion>();
 	}
+	
+	public Usuario() {
+		this("Desconocido");
+	}
 
 	public String getNombre() {
 		return nombre;

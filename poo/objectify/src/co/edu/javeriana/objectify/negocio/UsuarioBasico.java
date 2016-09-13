@@ -7,6 +7,8 @@ public class UsuarioBasico extends Usuario {
 	public UsuarioBasico(String nombre) {
 		super(nombre);
 	}
+	
+	public UsuarioBasico() {}
 
 	@Override
 	public boolean puedeEscucharAlbum(Album album) {
