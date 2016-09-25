@@ -1,6 +1,6 @@
 package co.edu.javeriana.objectify.negocio;
 
-public class UsuarioBasico extends Usuario {
+public final class UsuarioBasico extends Usuario {
 
 	private static final long serialVersionUID = 1L;
 
@@ -11,7 +11,7 @@ public class UsuarioBasico extends Usuario {
 	public UsuarioBasico() {}
 
 	@Override
-	public boolean puedeEscucharAlbum(Album album) {
+	public final boolean puedeEscucharAlbum(Album album) {
 		return !album.isExclusivo();
 	}
 
