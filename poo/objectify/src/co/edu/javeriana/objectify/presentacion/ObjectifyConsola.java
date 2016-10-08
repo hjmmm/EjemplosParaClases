@@ -9,6 +9,7 @@ import java.util.List;
 import co.edu.javeriana.objectify.archivos.ManejadorArchivos;
 import co.edu.javeriana.objectify.negocio.Album;
 import co.edu.javeriana.objectify.negocio.Artista;
+import co.edu.javeriana.objectify.negocio.Genero;
 import co.edu.javeriana.objectify.negocio.Objectify;
 import co.edu.javeriana.objectify.negocio.Reproductor;
 import co.edu.javeriana.objectify.negocio.Usuario;
@@ -67,6 +68,9 @@ public class ObjectifyConsola {
 						ManejadorArchivos.SerializarObjectify(negocio, IOConsola.leerCadena("Ruta al archivo"));
 						out.println("Los datos del sistema han sido guardados.");						 
 						break;
+					case 15:
+						mostrarGeneros();
+						break;
 					case 0:
 						out.println("Hasta la proxima!");
 						System.exit(0);
@@ -111,6 +115,13 @@ public class ObjectifyConsola {
 			out.println(u);
 		}
 	}
+	
+	private static void mostrarGeneros() {
+		System.out.println();
+		for(Genero g : Genero.values()){
+			System.out.printf("Nombre: %s\n%s\n\n", g.toString(), g.getDescripcion());
+		}
+	}
 
 	private static int menu() throws IOException {
 		out.println();
@@ -127,6 +138,7 @@ public class ObjectifyConsola {
 		out.println("12. Cargar artistas, albumes y canciones");
 		out.println("13. Cargar todo");
 		out.println("14. Guardar todo");
+		out.println("15. Mostrar generos");
 		out.println("0. Salir");
 		return IOConsola.leerEntero("Seleccione una opción");
 	}
