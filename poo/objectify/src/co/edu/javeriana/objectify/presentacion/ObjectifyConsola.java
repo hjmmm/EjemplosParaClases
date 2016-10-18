@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.json.simple.parser.ParseException;
+
 import co.edu.javeriana.objectify.archivos.ManejadorArchivos;
 import co.edu.javeriana.objectify.negocio.Album;
 import co.edu.javeriana.objectify.negocio.Artista;
@@ -24,14 +26,14 @@ public class ObjectifyConsola {
 	
 	private static PrintStream out = System.out;
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		
 		Objectify negocio = new Objectify();
 		Reproductor reproductor = Reproductor.obtenerInstancia();
 		
 		while (true){
-			int opcion = menu();
 			try {
+				int opcion = menu();
 				switch(opcion) {
 					case 1:
 						reproductor.reproducir();
@@ -75,7 +77,10 @@ public class ObjectifyConsola {
 						out.println("Hasta la proxima!");
 						System.exit(0);
 						break;
-				}				
+				}
+			} catch(IOException | ParseException e){
+				out.println("Error procesando archivos: " + e.getMessage());
+				e.printStackTrace();
 			} catch (Exception e) {
 				out.println("Se ha detectado un error: " + e.getMessage());
 				e.printStackTrace();

@@ -65,12 +65,12 @@ public class Reproductor extends JFXPanel {
 		// Se acabo el papel higienico, por suerte no lo necesitamos
 		this.colaReproduccion.clear();
 	}
-	public synchronized void reproducir() {
+	public synchronized void reproducir() throws ReproduccionException {
 		if (this.player != null) {
 			this.player.play();
 		} else {
+			URL url = null;
 			try {
-				URL url;
 				this.reproduciendo = this.colaReproduccion.poll();
 				this.reproduciendo.aumentarReproducciones();
 				if (this.reproduciendo != null) {
@@ -82,18 +82,23 @@ public class Reproductor extends JFXPanel {
 						@Override
 						public void run() {							
 							player = null;
-							Reproductor.obtenerInstancia().reproducir();
+							try {
+								Reproductor.obtenerInstancia().reproducir();
+							} catch (ReproduccionException e) {
+								e.printStackTrace();
+							}
 						}
 					});
 			        this.player.play();
 				}
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
+				throw new ReproduccionException(e, url);
 			} 
 		}
 	}
 	
-	public void siguiente() {
+	public void siguiente() throws ReproduccionException {
 		this.player.stop();
 		this.player = null;
 		reproducir();
