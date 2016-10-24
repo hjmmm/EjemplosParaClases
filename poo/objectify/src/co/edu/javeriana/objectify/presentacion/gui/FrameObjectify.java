@@ -16,20 +16,29 @@ import javax.swing.JOptionPane;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.awt.event.ActionEvent;
+import javax.swing.JTabbedPane;
 
 public class FrameObjectify extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private Objectify objectify;
+	private Objectify objectify;	
+	private JPanel paneles[];
 
 	/**
 	 * Create the frame.
 	 */
 	public FrameObjectify() {
+		setTitle("Objectify");
 			
 		final JFrame esteFrame = this;
 		this.objectify = new Objectify();
+		paneles = new JPanel[4];		
+		paneles[0] = new PanelArtistas(this.objectify);
+		paneles[1] = new PanelColaReproduccion(this.objectify);
+		paneles[2] = new PanelUsuarios(this.objectify);
+		paneles[3] = new PanelAgregarUsuario(this.objectify);
+		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
@@ -58,6 +67,7 @@ public class FrameObjectify extends JFrame {
 						int artistasCargados = ManejadorArchivos.cargarArchivoArtistas(objectify, chooser.getSelectedFile());
 						// Y presentar el resultado al usuario
 						JOptionPane.showMessageDialog(esteFrame, artistasCargados + " artista(s) cargados.");
+						refrescarPanel(0); 
 					}
 				} catch (Exception exp) {
 					// Si ocurre un error, reportarlo al usuario 
@@ -87,6 +97,7 @@ public class FrameObjectify extends JFrame {
 						int usuariosCargados = ManejadorArchivos.cargarArchivoUsuarios(objectify, chooser.getSelectedFile());
 						// Y presentar el resultado al usuario
 						JOptionPane.showMessageDialog(esteFrame, usuariosCargados + " usuario(s) cargados.");
+						refrescarPanel(2);
 					}
 				} catch (Exception exp) {
 					// Si ocurre un error, reportarlo al usuario 
@@ -116,6 +127,7 @@ public class FrameObjectify extends JFrame {
 						objectify = ManejadorArchivos.DesserializarObjectify(chooser.getSelectedFile());
 						// Y presentar el resultado al usuario
 						JOptionPane.showMessageDialog(esteFrame, "Sistema cargado correctamente.");
+						refrescarPaneles();
 					}
 				} catch (Exception exp) {
 					// Si ocurre un error, reportarlo al usuario 
@@ -124,6 +136,7 @@ public class FrameObjectify extends JFrame {
 					exp.printStackTrace();
 				}
 			}
+
 		});				
 		mnArchivo.add(mntmCargarTodo);
 		
@@ -186,11 +199,26 @@ public class FrameObjectify extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JPanel panel = new PanelReproductor();
-		contentPane.add(panel, BorderLayout.SOUTH);
+		JPanel pnlReproductor = new PanelReproductor();
+		contentPane.add(pnlReproductor, BorderLayout.SOUTH);
 		
-		JPanel panel_1 = new PanelArtistas();
-		contentPane.add(panel_1, BorderLayout.CENTER);
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		contentPane.add(tabbedPane, BorderLayout.CENTER);
+		
+		for (JPanel p : this.paneles) {
+			tabbedPane.addTab(p.getName(), p);
+		}		
+		
+	}
+	
+	private void refrescarPaneles() {
+		for(JPanel panel : this.paneles) {
+			((IPanelObjectify)panel).refrescar();
+		}
+	}
+	
+	private void refrescarPanel(int i) {
+		((IPanelObjectify)this.paneles[i]).refrescar();
 	}
 
 }

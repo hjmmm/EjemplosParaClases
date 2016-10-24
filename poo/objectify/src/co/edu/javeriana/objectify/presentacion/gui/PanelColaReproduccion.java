@@ -8,15 +8,25 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
-public class PanelColaReproduccion extends JPanel {
+import co.edu.javeriana.objectify.negocio.Objectify;
+
+public class PanelColaReproduccion extends JPanel implements IPanelObjectify {
 
 	private static final long serialVersionUID = 1L;
 	private JTable table;
-
+	private Objectify negocio;
+	
+	public void setNegocio(Objectify negocio) {
+		this.negocio = negocio;
+	}
+	
+	
 	/**
 	 * Create the panel.
 	 */
-	public PanelColaReproduccion() {
+	public PanelColaReproduccion(Objectify negocio) {
+		this.negocio = negocio;
+		setName("Cola");
 		setLayout(new BorderLayout(20, 15));
 		
 		JLabel lblNewLabel = new JLabel("Cola de Reproducci\u00F3n");
@@ -32,6 +42,13 @@ public class PanelColaReproduccion extends JPanel {
 			new String[] {"Id", "Canción", "Artista", "Albúm", "Duración", "Acciones"}));
 		scrollPane.setViewportView(table);
 
+	}
+
+
+	@Override
+	public void refrescar() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

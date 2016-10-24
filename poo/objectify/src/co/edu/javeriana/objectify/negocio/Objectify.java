@@ -197,6 +197,10 @@ public class Objectify implements Serializable {
 		return this.artistas.get(idArtista);
 	}
 
+	public Usuario buscarUsuario(long id) {
+		return this.usuarios.get(id);
+	}
+
 }
 
 

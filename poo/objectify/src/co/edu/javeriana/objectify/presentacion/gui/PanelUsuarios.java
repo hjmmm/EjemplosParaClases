@@ -8,15 +8,24 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
-public class PanelUsuarios extends JPanel {
+import co.edu.javeriana.objectify.negocio.Objectify;
+
+public class PanelUsuarios extends JPanel implements IPanelObjectify {
 
 	private static final long serialVersionUID = 1L;
 	private JTable table;
+	private Objectify negocio;
+	
+	public void setNegocio(Objectify negocio) {
+		this.negocio = negocio;
+	}
 
 	/**
 	 * Create the panel.
 	 */
-	public PanelUsuarios() {
+	public PanelUsuarios(Objectify negocio) {
+		this.negocio = negocio;
+		setName("Usuarios");
 		setLayout(new BorderLayout(20, 15));
 		
 		JLabel lblNewLabel = new JLabel("Usuarios");
@@ -32,6 +41,12 @@ public class PanelUsuarios extends JPanel {
 			new String[] { "Id", "Nombre", "Acciones" }));
 		scrollPane.setViewportView(table);
 
+	}
+
+	@Override
+	public void refrescar() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -49,7 +49,7 @@ public class UsuarioPago extends Usuario {
 
 	@Override
 	public String toString() {
-		return super.toString() + String.format("\tVencimiento: %tF", vencimientoSuscripcion);
+		return super.toString() + String.format(" Vencimiento: %tF", vencimientoSuscripcion);
 	}
 
 	public float getValorPagado() {

@@ -111,7 +111,7 @@ public class Artista implements Serializable {
 
 	@Override
 	public String toString() {
-		return String.format("Id: %d \t Nombre: %s \t Generos: %s \n\t Descripcion: %s", id, nombre, generos, descripcion); 
+		return String.format("Id: %d \t Nombre: %s \t", id, nombre); 
 	}
 
 	public Collection<Album> getAlbumes() {

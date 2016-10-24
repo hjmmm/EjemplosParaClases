@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 import javafx.embed.swing.JFXPanel;
@@ -20,9 +21,11 @@ public class Reproductor extends JFXPanel {
 	private Cancion reproduciendo;
 	private MediaPlayer player;
 	private Usuario usuarioActivo; 
+	private List<IObservadorReproductor> observadores;
 	
 	private Reproductor() {
-		colaReproduccion = new LinkedList<Cancion>();		
+		colaReproduccion = new LinkedList<Cancion>();
+		observadores = new ArrayList<IObservadorReproductor>();
 	}
 	
 	public static synchronized Reproductor obtenerInstancia() {
@@ -70,9 +73,10 @@ public class Reproductor extends JFXPanel {
 		} else {
 			URL url = null;
 			try {
-				this.reproduciendo = this.colaReproduccion.poll();
-				this.reproduciendo.aumentarReproducciones();
+				this.reproduciendo = this.colaReproduccion.poll();				
+				this.notificarCambioCancion(this.reproduciendo);
 				if (this.reproduciendo != null) {
+					this.reproduciendo.aumentarReproducciones();
 					System.out.printf("Reproduciendo: %s\n",this.reproduciendo.getNombre());
 					url = new URL(this.reproduciendo.getRutaArchivo());
 			        Media media = new Media(url.toString());
@@ -134,6 +138,20 @@ public class Reproductor extends JFXPanel {
 
 	public void setUsuarioActivo(Usuario usuarioActivo) {
 		this.usuarioActivo = usuarioActivo;
+		notificarCambioUsuario(usuarioActivo);
 	}
-
+	
+	public void agregarObservador(IObservadorReproductor observador) {
+		this.observadores.add(observador);
+	}	
+	
+	private void notificarCambioCancion(Cancion nueva) {
+		this.observadores.forEach(ob -> ob.onCancionCambiada(nueva));
+	}
+	
+	private void notificarCambioUsuario(Usuario nuevo) {
+		for (IObservadorReproductor ob : this.observadores) {
+			ob.onUsuarioCambiado(nuevo);
+		}
+	}
 }
